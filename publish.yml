@@ -1,21 +1,37 @@
-name: Publish to Marketplace
+name: Release
 
-# Runs when you push a version tag, e.g. `git tag v0.0.2 && git push --tags`
+# Runs when pushing a version tag, e.g. when this is done:
+#   npm version patch        (bumps package.json, commits, creates new patch version tag vx.x.++)
+#   git push --follow-tags
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      id-token: write   # lets the job request the OIDC token for trusted publishing
+      contents: write # needed to create the GitHub Release
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - run: npm ci
-      - run: npx @vscode/vsce publish --oidc
+
+      - name: Check tag matches package.json version
+        run: |
+          PKG_VERSION="v$(node -p "require('./package.json').version")"
+          if [ "$PKG_VERSION" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $PKG_VERSION"
+            exit 1
+          fi
+
+      - name: Package extension
+        run: npx @vscode/vsce package -o ng-tab-grouper-${GITHUB_REF_NAME}.vsix
+
+      - name: Create GitHub Release with the .vsix
+        run: gh release create "$GITHUB_REF_NAME" ng-tab-grouper-*.vsix --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
