@@ -1,0 +1,21 @@
+name: Publish to Marketplace
+
+# Runs when you push a version tag, e.g. `git tag v0.0.2 && git push --tags`
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # lets the job request the OIDC token for trusted publishing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx @vscode/vsce publish --oidc
