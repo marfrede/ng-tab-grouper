@@ -1,0 +1,38 @@
+{
+  "name": "angular-tab-grouper",
+  "displayName": "Angular Tab Grouper",
+  "description": "Opens related files (same name up to the first dot) next to each other in the tab bar.",
+  "version": "0.0.1",
+  "publisher": "marvinfrede",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Angular Tab Grouper",
+      "properties": {
+        "angularTabGrouper.sameFolderOnly": {
+          "type": "boolean",
+          "default": true,
+          "description": "Only group files that live in the same folder (prevents e.g. every index.ts from being grouped)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/vscode": "^1.140.0",
+    "typescript": "^5.9.3"
+  }
+}
