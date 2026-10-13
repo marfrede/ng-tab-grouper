@@ -9,7 +9,7 @@ let log: vscode.OutputChannel;
 const handled = new Set<string>();
 
 export function activate(context: vscode.ExtensionContext) {
-  log = vscode.window.createOutputChannel("Angular Tab Grouper");
+  log = vscode.window.createOutputChannel("Tab Grouper for Angular");
   context.subscriptions.push(log);
   log.appendLine("Activated.");
 

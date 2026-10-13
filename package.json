@@ -1,22 +1,23 @@
 {
-  "name": "angular-tab-grouper",
-  "displayName": "Angular Tab Grouper",
-  "description": "Opens related files (same name up to the first dot) next to each other in the tab bar.",
+  "name": "ng-tab-grouper",
+  "displayName": "Tab Grouper for Angular",
+  "description": "Keeps the files of an Angular component next to each other in the tab bar, sorted alphabetically.",
   "version": "0.0.1",
   "publisher": "marvinfrede",
-  "engines": {
-    "vscode": "^1.80.0"
+  "license": "EUPL-1.2",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marvinfrede/ng-tab-grouper"
   },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "keywords": ["angular", "tabs", "component", "editor", "organize"],
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Angular Tab Grouper",
+      "title": "Tab Grouper for Angular",
       "properties": {
         "angularTabGrouper.sameFolderOnly": {
           "type": "boolean",
@@ -27,12 +28,13 @@
     }
   },
   "scripts": {
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
-    "@types/node": "^20.19.43",
-    "@types/vscode": "^1.140.0",
-    "typescript": "^5.9.3"
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.4.0"
   }
 }

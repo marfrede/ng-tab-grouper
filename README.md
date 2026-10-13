@@ -1,4 +1,4 @@
-# Angular Tab Grouper
+# Tab Grouper for Angular
 
 Keeps the files of an Angular component next to each other in your tab bar.
 
