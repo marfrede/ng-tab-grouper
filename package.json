@@ -2,7 +2,7 @@
   "name": "ng-tab-grouper",
   "displayName": "Tab Grouper for Angular",
   "description": "Keeps the files of an Angular component next to each other in the tab bar, sorted alphabetically.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "marvinfrede",
   "license": "EUPL-1.2",
   "icon": "icon.png",
@@ -10,10 +10,22 @@
     "type": "git",
     "url": "https://github.com/marvinfrede/ng-tab-grouper"
   },
-  "keywords": ["angular", "tabs", "component", "editor", "organize"],
-  "engines": { "vscode": "^1.80.0" },
-  "categories": ["Other"],
-  "activationEvents": ["onStartupFinished"],
+  "keywords": [
+    "angular",
+    "tabs",
+    "component",
+    "editor",
+    "organize"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
