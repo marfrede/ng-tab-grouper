@@ -3,7 +3,10 @@ name: Release
 # Runs when pushing a version tag, e.g. when this is done:
 #   npm version patch        (bumps package.json, commits, creates new patch version tag vx.x.++)
 #   git push --follow-tags
-# then manual step: upload new .vsix to https://marketplace.visualstudio.com/manage/publishers/marvinfrede
+# then manual step:
+#   go to https://marketplace.visualstudio.com/manage/publishers/marvinfrede
+#   click "Update"
+#   upload new .vsix
 on:
   push:
     tags:
