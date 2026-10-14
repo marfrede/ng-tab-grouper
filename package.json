@@ -8,7 +8,7 @@
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marvinfrede/ng-tab-grouper"
+    "url": "https://github.com/marfrede/ng-tab-grouper"
   },
   "keywords": [
     "angular",
